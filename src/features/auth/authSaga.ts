@@ -14,7 +14,6 @@ function* handleLogin(payload: LoginPayload) {
             }),
         );
         yield put(push("/admin/dashboard"));
-        window.location.reload();
     } catch (error) {
         yield put(authActions.loginFailed("Error"));
     }
@@ -38,7 +37,6 @@ function* watchLoginFlow() {
         yield take(authActions.logout.type);
         yield call(handleLogout);
         yield put(push("/login"));
-        window.location.reload();
     }
 }
 
